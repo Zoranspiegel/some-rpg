@@ -15,7 +15,16 @@ class_name Player
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimSprite
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var enemy_area: Area2D = %EnemyAttackArea
+@onready var weapon: Node2D = $Weapon
 @onready var fsm: FSM = $FSM
+
+@onready var attack_positions: Dictionary = {
+	"down": %Down,
+	"left": %Left,
+	"up": %Up,
+	"right": %Right
+}
 
 var current_exp: float
 var next_level_exp: float
@@ -77,3 +86,6 @@ func use_mana(value: float) -> void:
 	current_mana -= value
 	current_mana = max(current_mana, 0)
 	EventBus.on_player_mana_updated.emit(current_mana, max_mana)
+
+func enable_weapon_collision(value: bool):
+	enemy_area.monitoring = value

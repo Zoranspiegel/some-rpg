@@ -3,12 +3,30 @@
 [ext_resource type="Script" uid="uid://dwoshcpo8lt3n" path="res://scenes/player/player.gd" id="1_lvxji"]
 [ext_resource type="Texture2D" uid="uid://l58lkiu042xv" path="res://Sprites/Actor/Characters/Shadow.png" id="2_p47bc"]
 [ext_resource type="Texture2D" uid="uid://cc0q6egjxfobw" path="res://Sprites/Actor/Characters/Boy/SeparateAnim/Idle.png" id="3_75vfm"]
+[ext_resource type="Texture2D" uid="uid://cif5jmjk1clyv" path="res://Sprites/Actor/Characters/Boy/SeparateAnim/Attack.png" id="3_je7p5"]
 [ext_resource type="Texture2D" uid="uid://bacld8ysircpa" path="res://Sprites/Actor/Characters/Boy/SeparateAnim/Walk.png" id="4_0owmy"]
 [ext_resource type="PackedScene" uid="uid://mm65c74xl0m2" path="res://scenes/health_component/health_component.tscn" id="5_5gtgg"]
 [ext_resource type="Script" uid="uid://ly73n3oeuupe" path="res://scripts/fsm.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://bcdobuaicf55p" path="res://scenes/player/states/player_idle_state.gd" id="6_75vfm"]
 [ext_resource type="Script" uid="uid://6m51l21nmy0w" path="res://scenes/player/states/player_walk_state.gd" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://jkuabemn3q0n" path="res://scenes/player/states/player_attack_state.gd" id="8_qek5x"]
+[ext_resource type="Texture2D" uid="uid://3p8iooj1mo5j" path="res://Sprites/Items/Weapons/Lance/Sprite.png" id="11_fm80t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx1jg"]
+atlas = ExtResource("3_je7p5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugbui"]
+atlas = ExtResource("3_je7p5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcs02"]
+atlas = ExtResource("3_je7p5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myrg7"]
+atlas = ExtResource("3_je7p5")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("3_75vfm")
@@ -92,6 +110,38 @@ region = Rect2(16, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lun0u"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx1jg")
+}],
+"loop": 0,
+"name": &"attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugbui")
+}],
+"loop": 0,
+"name": &"attack_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcs02")
+}],
+"loop": 0,
+"name": &"attack_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myrg7")
+}],
+"loop": 0,
+"name": &"attack_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tuyoq")
@@ -196,6 +246,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_lun0u"]
 radius = 7.071068
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lun0u"]
+size = Vector2(6, 14)
+
 [node name="Player" type="CharacterBody2D" unique_id=1581713541]
 script = ExtResource("1_lvxji")
 
@@ -207,7 +260,7 @@ texture = ExtResource("2_p47bc")
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=1627313173]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_lun0u")
-animation = &"idle_down"
+animation = &"attack_up"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=465901805]
@@ -216,6 +269,42 @@ shape = SubResource("CircleShape2D_lun0u")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1168639265]
 zoom = Vector2(3, 3)
+
+[node name="Weapon" type="Node2D" parent="." unique_id=497152909]
+visible = false
+position = Vector2(-15, -8)
+
+[node name="Icon" type="Sprite2D" parent="Weapon" unique_id=651825249]
+position = Vector2(0, -11)
+texture = ExtResource("11_fm80t")
+
+[node name="EnemyAttackArea" type="Area2D" parent="Weapon" unique_id=1307220750]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/EnemyAttackArea" unique_id=2045203329]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_lun0u")
+
+[node name="AttackPos" type="Node2D" parent="." unique_id=942621307]
+
+[node name="Down" type="Marker2D" parent="AttackPos" unique_id=416438001]
+unique_name_in_owner = true
+position = Vector2(-2, 3)
+
+[node name="Left" type="Marker2D" parent="AttackPos" unique_id=1389570986]
+unique_name_in_owner = true
+position = Vector2(-11, -4)
+
+[node name="Up" type="Marker2D" parent="AttackPos" unique_id=970395536]
+unique_name_in_owner = true
+position = Vector2(-3, -19)
+
+[node name="Right" type="Marker2D" parent="AttackPos" unique_id=1540006728]
+unique_name_in_owner = true
+position = Vector2(11, -4)
 
 [node name="HealthComponent" parent="." unique_id=928065996 instance=ExtResource("5_5gtgg")]
 
