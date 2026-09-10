@@ -9,11 +9,21 @@ class_name Player
 @export var crit_chance: float = 0.0
 @export var crit_damage: float = 0.0
 
+@export_group("Exp")
+@export var base_exp: float = 100.0
+@export var exp_multiplier: float = 2.0
+
 @onready var anim_sprite: AnimatedSprite2D = $AnimSprite
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var fsm: FSM = $FSM
 
+var current_exp: float
+var next_level_exp: float
+var current_level: int = 1
+var current_points: int = 0
+
 var current_mana: float
+
 var last_direction: String = "down"
 
 func _process(delta: float) -> void:
@@ -36,9 +46,24 @@ func update_direction(input_vector: Vector2) -> void:
 func play_direction_anim(anim_name: String) -> void:
 	anim_sprite.play("%s_%s" % [anim_name, last_direction])
 
+func add_exp(value: float) -> void:
+	current_exp += value
+	while current_exp >= next_level_exp:
+		level_up()
+	
+	EventBus.on_player_new_level.emit(current_exp, next_level_exp)
+
+func level_up() -> void:
+	current_exp -= next_level_exp
+	current_level += 1
+	current_points += 4
+	next_level_exp *= exp_multiplier
+	EventBus.on_player_stats_updated.emit()
+
 func setup() -> void:
 	reset_health()
 	reset_mana()
+	next_level_exp = base_exp
 
 func reset_health() -> void:
 	health_component.setup(max_health)
