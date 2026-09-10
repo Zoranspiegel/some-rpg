@@ -10,8 +10,10 @@ class_name Player
 @export var crit_damage: float = 0.0
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimSprite
+@onready var health_component: HealthComponent = $HealthComponent
 @onready var fsm: FSM = $FSM
 
+var current_mana: float
 var last_direction: String = "down"
 
 func _process(delta: float) -> void:
@@ -33,3 +35,20 @@ func update_direction(input_vector: Vector2) -> void:
 
 func play_direction_anim(anim_name: String) -> void:
 	anim_sprite.play("%s_%s" % [anim_name, last_direction])
+
+func setup() -> void:
+	reset_health()
+	reset_mana()
+
+func reset_health() -> void:
+	health_component.setup(max_health)
+	EventBus.on_player_health_updated.emit(max_health, max_health)
+
+func reset_mana() -> void:
+	current_mana = max_mana
+	EventBus.on_player_mana_updated.emit(max_mana, max_mana)
+
+func use_mana(value: float) -> void:
+	current_mana -= value
+	current_mana = max(current_mana, 0)
+	EventBus.on_player_mana_updated.emit(current_mana, max_mana)
