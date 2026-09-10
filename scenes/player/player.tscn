@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://l58lkiu042xv" path="res://Sprites/Actor/Characters/Shadow.png" id="2_p47bc"]
 [ext_resource type="Texture2D" uid="uid://cc0q6egjxfobw" path="res://Sprites/Actor/Characters/Boy/SeparateAnim/Idle.png" id="3_75vfm"]
 [ext_resource type="Texture2D" uid="uid://bacld8ysircpa" path="res://Sprites/Actor/Characters/Boy/SeparateAnim/Walk.png" id="4_0owmy"]
+[ext_resource type="Script" uid="uid://ly73n3oeuupe" path="res://scripts/fsm.gd" id="5_p47bc"]
+[ext_resource type="Script" uid="uid://bcdobuaicf55p" path="res://scenes/player/states/player_idle_state.gd" id="6_75vfm"]
+[ext_resource type="Script" uid="uid://6m51l21nmy0w" path="res://scenes/player/states/player_walk_state.gd" id="7_0owmy"]
+[ext_resource type="Script" uid="uid://jkuabemn3q0n" path="res://scenes/player/states/player_attack_state.gd" id="8_qek5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("3_75vfm")
@@ -210,3 +214,16 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_lun0u")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1168639265]
+
+[node name="FSM" type="Node" parent="." unique_id=1721716987]
+script = ExtResource("5_p47bc")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="FSM" unique_id=43619253]
+script = ExtResource("6_75vfm")
+
+[node name="Walk" type="Node" parent="FSM" unique_id=1328794444]
+script = ExtResource("7_0owmy")
+
+[node name="Attack" type="Node" parent="FSM" unique_id=2136648095]
+script = ExtResource("8_qek5x")
