@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://b0bcxspu8clpd"]
 
 [ext_resource type="Texture2D" uid="uid://bcuswpmg4cbuv" path="res://Sprites/Backgrounds/Tilesets/TilesetFloor.png" id="1_n11nm"]
+[ext_resource type="Script" uid="uid://1mprqttosbfn" path="res://scenes/town/town.gd" id="1_xbtnt"]
 [ext_resource type="Texture2D" uid="uid://ml1c8vmlq262" path="res://Sprites/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="2_gxugk"]
 [ext_resource type="Texture2D" uid="uid://b2tcd5s4u05ny" path="res://Sprites/Backgrounds/Tilesets/TilesetWater.png" id="3_5vpkg"]
 [ext_resource type="Texture2D" uid="uid://dxiso66tj6ccv" path="res://Sprites/Backgrounds/Tilesets/TilesetElement.png" id="3_8b7wv"]
@@ -3660,6 +3661,63 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_6g2qn")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7vll"]
+bg_color = Color(0.25882354, 0.05882353, 0.011764706, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re4j0"]
+bg_color = Color(0.77254903, 0.2509804, 0.105882354, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.25882354, 0.05882353, 0.011764706, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vky2r"]
+bg_color = Color(0.015686275, 0.12941177, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwdo8"]
+bg_color = Color(0.14509805, 0.48235294, 0.68235296, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.015686275, 0.12941177, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wacgc"]
+bg_color = Color(0.015686275, 0.15686275, 0.07058824, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1uhr"]
+bg_color = Color(0.11372549, 0.5372549, 0.3019608, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.015686275, 0.15686275, 0.07058824, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lun0u"]
 bg_color = Color(0.14901961, 0.15686275, 0.20784314, 1)
 border_width_left = 2
@@ -3780,6 +3838,8 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [node name="Town" type="Node2D" unique_id=637069194]
+script = ExtResource("1_xbtnt")
+player_scene = ExtResource("4_06row")
 
 [node name="Terrain" type="Node2D" parent="." unique_id=1353216164]
 
@@ -3796,10 +3856,75 @@ tile_set = SubResource("TileSet_8iqyd")
 tile_map_data = PackedByteArray("AAD1//n/AAAAAAAAAAD1//r/AAAAAAEAAAD1//v/AAAAAAIAAAD2//n/AAABAAAAAAD2//r/AAABAAEAAAD2//v/AAABAAIAAAD3//n/AAACAAAAAAD3//r/AAACAAEAAAD3//v/AAACAAIAAAD4//n/AAADAAAAAAD4//r/AAADAAEAAAD4//v/AAADAAIAAAD6/wAAAAAIAAAAAAD6/wEAAAAIAAEAAAD6/wIAAAAIAAIAAAD7/wAAAAAJAAAAAAD7/wEAAAAJAAEAAAD7/wIAAAACAAMAAAD8/wAAAAAKAAAAAAD8/wEAAAAKAAEAAAD8/wIAAAAKAAIAAAD9/wAAAAALAAAAAAD9/wEAAAALAAEAAAD9/wIAAAALAAIAAAAHAAAAAAATAAAAAAAHAAEAAAATAAEAAAAHAAIAAAATAAIAAAAIAAAAAAAUAAAAAAAIAAEAAAAUAAEAAAAIAAIAAAAUAAIAAAAJAAAAAAAVAAAAAAAJAAEAAAAVAAEAAAAJAAIAAAABAAMAAAAKAAAAAAAWAAAAAAAKAAEAAAAWAAEAAAAKAAIAAAAWAAIAAAD///n/AAAdAAEAAAD///r/AAAdAAIAAAD///v/AAAdAAMAAAAAAPn/AAAeAAEAAAAAAPr/AAAeAAIAAAAAAPv/AAABAAMAAAABAPj/AAAfAAAAAAABAPn/AAAfAAEAAAABAPr/AAAfAAIAAAABAPv/AAAfAAMAAAACAPj/AAAgAAAAAAACAPn/AAAgAAEAAAACAPr/AAAgAAIAAAACAPv/AAAgAAMAAAACAAAAAAAEAAAAAAACAAEAAAAEAAEAAAACAAIAAAAEAAIAAAADAAAAAAAFAAAAAAADAAEAAAAFAAEAAAADAAIAAAACAAMAAAAEAAAAAAAGAAAAAAAEAAEAAAAGAAEAAAAEAAIAAAAGAAIAAAAFAAAAAAAHAAAAAAAFAAEAAAAHAAEAAAAFAAIAAAAHAAIAAAD6//n/AAAMAAAAAAD6//r/AAAMAAEAAAD6//v/AAAMAAIAAAD7//n/AAANAAAAAAD7//r/AAANAAEAAAD7//v/AAACAAMAAAD8//n/AAAOAAAAAAD8//r/AAAOAAEAAAD8//v/AAAOAAIAAAD9//n/AAAPAAAAAAD9//r/AAAPAAEAAAD9//v/AAAPAAIAAAD1/wAAAAATAAAAAAD1/wEAAAATAAEAAAD1/wIAAAATAAIAAAD2/wAAAAAUAAAAAAD2/wEAAAAUAAEAAAD2/wIAAAAUAAIAAAD3/wAAAAAVAAAAAAD3/wEAAAAVAAEAAAD3/wIAAAABAAMAAAD4/wAAAAAWAAAAAAD4/wEAAAAWAAEAAAD4/wIAAAAWAAIAAAALAO//AAALAAUAAAAMAO//AAALAAUAAAANAO//AAAJAAUAAAANAOb/AAALAAQAAAANAOf/AAALAAQAAAANAOj/AAALAAQAAAANAOn/AAALAAQAAAANAOr/AAALAAQAAAANAOv/AAALAAQAAAANAOz/AAALAAQAAAANAO3/AAALAAQAAAANAO7/AAALAAQAAAAFAO//AAALAAUAAAAEAO//AAALAAUAAAADAO//AAAIAAUAAAADAO7/AAALAAQAAAADAO3/AAALAAQAAAADAOz/AAALAAQAAAADAOv/AAALAAQAAAADAOr/AAALAAQAAAADAOn/AAALAAQAAAADAOj/AAALAAQAAAADAOf/AAALAAQAAAADAOb/AAALAAQAAAAHAOb/AAADAAgAAAAHAOf/AAADAAkAAAAIAOb/AAAEAAgAAAAIAOf/AAAEAAkAAAAJAOb/AAAFAAgAAAAJAOf/AAAFAAkAAAD//+b/AAATABMAAAD//+f/AAATABQAAAD//+j/AAATABUAAAAAAOb/AAAUABMAAAAAAOf/AAAUABQAAAAAAOj/AAAUABUAAAABAOb/AAAVABMAAAABAOf/AAAVABQAAAABAOj/AAAVABUAAAD6/+b/AAAAAAcAAAD6/+f/AAAAAAgAAAD6/+j/AAAAAAkAAAD7/+b/AAABAAcAAAD7/+f/AAABAAgAAAD7/+j/AAABAAkAAAD8/+b/AAACAAcAAAD8/+f/AAACAAgAAAD8/+j/AAACAAkAAAD2/+X/AAAdAAQAAAD2/+b/AAAdAAUAAAD2/+f/AAAdAAYAAAD2/+j/AAAdAAcAAAD3/+X/AAAeAAQAAAD3/+b/AAAeAAUAAAD3/+f/AAAeAAYAAAD3/+j/AAAeAAcAAAD4/+X/AAAfAAQAAAD4/+b/AAAfAAUAAAD4/+f/AAAfAAYAAAD4/+j/AAAfAAcAAAD1/+f/AAAgABEAAAD1/+j/AAAgABIAAAD1/+v/AAAfABIAAAD1/+z/AAAfABIAAAD1//X/AAAfABAAAAD2//X/AAAgABAAAAD3//X/AAAfABAAAAD4//X/AAAgABAAAAABAOn/AAAdAAgAAAABAOr/AAAdAAkAAAACAOn/AAAeAAgAAAACAOr/AAAeAAkAAAAWAOn/AAADAAgAAAAWAOr/AAADAAkAAAAXAOn/AAAEAAgAAAAXAOr/AAAEAAkAAAAYAOn/AAAFAAgAAAAYAOr/AAAFAAkAAAAcAPP/AAADAAgAAAAcAPT/AAADAAkAAAAdAPP/AAAEAAgAAAAdAPT/AAAEAAkAAAAeAPP/AAAFAAgAAAAeAPT/AAAFAAkAAAArAPD/AAAAAAcAAAArAPH/AAAAAAgAAAArAPL/AAAAAAkAAAAsAPD/AAABAAcAAAAsAPH/AAABAAgAAAAsAPL/AAABAAkAAAAtAPD/AAACAAcAAAAtAPH/AAACAAgAAAAtAPL/AAACAAkAAADt/+X/AAABAA8AAADt/+b/AAABABAAAADt/+f/AAABABEAAADu/+X/AAACAA8AAADu/+b/AAACABAAAADu/+f/AAACABEAAADx/+b/AAAFABEAAADx/+f/AAAFABIAAADy/+b/AAAGABEAAADy/+f/AAAGABIAAADp/+b/AAAFABEAAADp/+f/AAAFABIAAADq/+b/AAAGABEAAADq/+f/AAAGABIAAADo/+j/AAAHAA8AAADo/+n/AAAHABAAAADz/+j/AAAHAA8AAADz/+n/AAAHABAAAADz//X/AAACABIAAADx//X/AAACABIAAADv//X/AAACABIAAADt//X/AAACABIAAADr//X/AAACABIAAADp//X/AAACABIAAAD+/wcAAAAKAA8AAAD+/wgAAAAKABAAAAD//wcAAAALAA8AAAD//wgAAAALABAAAAAAAAcAAAALAA8AAAAAAAgAAAALABAAAAABAAcAAAAMAA8AAAABAAgAAAAMABAAAAD+/wkAAAAKABEAAAD//wkAAAALABEAAAAAAAkAAAALABEAAAABAAkAAAAMABEAAAA=")
 tile_set = SubResource("TileSet_b7vll")
 
-[node name="Player" parent="." unique_id=1581713541 instance=ExtResource("4_06row")]
-
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1130491938]
 script = ExtResource("9_svnup")
+
+[node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=191808623]
+custom_minimum_size = Vector2(150, 27)
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 170.0
+offset_bottom = 47.0
+theme_override_styles/background = SubResource("StyleBoxFlat_b7vll")
+theme_override_styles/fill = SubResource("StyleBoxFlat_re4j0")
+max_value = 1.0
+step = 0.001
+value = 0.5
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="HUD/HealthBar" unique_id=614211803]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "20/20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ManaBar" type="ProgressBar" parent="HUD" unique_id=77040757]
+custom_minimum_size = Vector2(150, 27)
+offset_left = 20.0
+offset_top = 50.0
+offset_right = 170.0
+offset_bottom = 77.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vky2r")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fwdo8")
+max_value = 1.0
+step = 0.001
+value = 0.5
+show_percentage = false
+
+[node name="ManaLabel" type="Label" parent="HUD/ManaBar" unique_id=486419692]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "20/20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="HUD" unique_id=12322248]
+custom_minimum_size = Vector2(700, 27)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_top = 20.0
+offset_right = 350.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_wacgc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_s1uhr")
+max_value = 1.0
+step = 0.001
 
 [node name="MainButtons" type="Panel" parent="HUD" unique_id=134012663]
 custom_minimum_size = Vector2(234, 66)
@@ -4000,18 +4125,23 @@ theme_override_constants/separation = 12
 alignment = 2
 
 [node name="EquipmentPanel" parent="HUD/Panels" unique_id=2014450717 instance=ExtResource("14_w25xm")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
 [node name="InventoryPanel" parent="HUD/Panels" unique_id=892706448 instance=ExtResource("14_yr8sw")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
 [node name="StatsPanel" parent="HUD/Panels" unique_id=150375541 instance=ExtResource("16_dmgee")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
 [node name="SkillsPanel" parent="HUD/Panels" unique_id=137913225 instance=ExtResource("17_my0xt")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/EquipmentButton" to="HUD" method="_on_equipment_button_pressed"]
