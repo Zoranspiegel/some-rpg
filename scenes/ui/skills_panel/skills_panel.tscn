@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://c8u27jx2a641s"]
+
+[ext_resource type="Script" uid="uid://dmay5bip5tf28" path="res://scenes/ui/skills_panel/skills_panel.gd" id="1_gy18t"]
+[ext_resource type="PackedScene" uid="uid://dcdjvwa4b5w8y" path="res://scenes/ui/skills_panel/skill_button.tscn" id="1_mo28p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7vll"]
+bg_color = Color(0.14901961, 0.16470589, 0.20784314, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.101960786, 0.11372549, 0.14901961, 1)
+shadow_size = 2
+shadow_offset = Vector2(4, 4)
+
+[node name="SkillsPanel" type="PanelContainer" unique_id=137913225]
+custom_minimum_size = Vector2(215, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_b7vll")
+script = ExtResource("1_gy18t")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=615613509]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer" unique_id=504455319]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBox" unique_id=719920446]
+layout_mode = 2
+text = "Skills"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBox" unique_id=1984068446]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.1882353, 0.20784314, 0.25882354, 1)
+
+[node name="Space" type="Control" parent="MarginContainer/VBox" unique_id=2031386389]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBox" unique_id=372133492]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBox/VBoxContainer" unique_id=1010881510]
+layout_mode = 2
+alignment = 1
+
+[node name="SkillButton" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer" unique_id=440452370 instance=ExtResource("1_mo28p")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBox/VBoxContainer" unique_id=1959970247]
+layout_mode = 2
+alignment = 1
+
+[node name="SkillButton" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer2" unique_id=722182231 instance=ExtResource("1_mo28p")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer2" unique_id=1045744068]
+custom_minimum_size = Vector2(74, 50)
+layout_mode = 2
+
+[node name="SkillButton2" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer2" unique_id=1919758776 instance=ExtResource("1_mo28p")]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBox/VBoxContainer" unique_id=868746210]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="SkillButton" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer3" unique_id=1787858970 instance=ExtResource("1_mo28p")]
+layout_mode = 2
+
+[node name="SkillButton2" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer3" unique_id=1315855432 instance=ExtResource("1_mo28p")]
+layout_mode = 2
+
+[node name="SkillButton3" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer3" unique_id=1182155354 instance=ExtResource("1_mo28p")]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBox/VBoxContainer" unique_id=707546484]
+layout_mode = 2
+alignment = 1
+
+[node name="SkillButton" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer4" unique_id=440269318 instance=ExtResource("1_mo28p")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer4" unique_id=872137590]
+custom_minimum_size = Vector2(74, 50)
+layout_mode = 2
+
+[node name="SkillButton2" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer4" unique_id=323723004 instance=ExtResource("1_mo28p")]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBox/VBoxContainer" unique_id=1569102041]
+layout_mode = 2
+alignment = 1
+
+[node name="SkillButton" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer5" unique_id=1701974089 instance=ExtResource("1_mo28p")]
+layout_mode = 2

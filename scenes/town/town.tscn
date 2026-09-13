@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://185bfwfjhha6" path="res://scenes/ui/equipment_panel/equipment_panel.tscn" id="14_w25xm"]
 [ext_resource type="PackedScene" uid="uid://bbp56bsy11gyn" path="res://scenes/ui/inventory_panel/inventory_panel.tscn" id="14_yr8sw"]
 [ext_resource type="PackedScene" uid="uid://c0lnwh2wiafr1" path="res://scenes/ui/stats_panel/stats_panel.tscn" id="16_dmgee"]
+[ext_resource type="PackedScene" uid="uid://c8u27jx2a641s" path="res://scenes/ui/skills_panel/skills_panel.tscn" id="17_my0xt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxugk"]
 texture = ExtResource("1_n11nm")
@@ -3957,6 +3958,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="StatsPanel" parent="HUD/Panels" unique_id=150375541 instance=ExtResource("16_dmgee")]
+layout_mode = 2
+
+[node name="SkillsPanel" parent="HUD/Panels" unique_id=137913225 instance=ExtResource("17_my0xt")]
 layout_mode = 2
 
 [connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/EquipmentButton" to="HUD" method="_on_equipment_button_pressed"]
