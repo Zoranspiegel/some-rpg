@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://cl6elbrhm76vt" path="res://scenes/player/player.tscn" id="4_06row"]
 [ext_resource type="Texture2D" uid="uid://4pycywr6jrmo" path="res://Sprites/Backgrounds/Tilesets/TilesetHouse.png" id="4_v00pm"]
 [ext_resource type="Texture2D" uid="uid://vdni4gvweh4f" path="res://Sprites/Backgrounds/Tilesets/TilesetFloorDetail.png" id="5_5vpkg"]
+[ext_resource type="Texture2D" uid="uid://chl3tal0v806j" path="res://Sprites/Items/Tool/Axe.png" id="9_5ya6w"]
+[ext_resource type="Script" uid="uid://cr1eotiabo141" path="res://scenes/town/hud.gd" id="9_svnup"]
+[ext_resource type="Texture2D" uid="uid://gjnokcseymfk" path="res://Sprites/Items/Object/Bag.png" id="10_svnup"]
+[ext_resource type="Texture2D" uid="uid://mm445ygdhav3" path="res://Sprites/stats.png" id="11_yr8sw"]
+[ext_resource type="Texture2D" uid="uid://xyak03jnq3mj" path="res://Sprites/Rune.png" id="12_w25xm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxugk"]
 texture = ExtResource("1_n11nm")
@@ -3650,6 +3655,125 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_6g2qn")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lun0u"]
+bg_color = Color(0.14901961, 0.15686275, 0.20784314, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iqyd"]
+bg_color = Color(0.28627452, 0.30588236, 0.36862746, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svnup"]
+bg_color = Color(0.21568628, 0.23137255, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr8sw"]
+bg_color = Color(0.4392157, 0.4627451, 0.54509807, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w25xm"]
+bg_color = Color(0.21568628, 0.23137255, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmgee"]
+bg_color = Color(0.4392157, 0.4627451, 0.54509807, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_my0xt"]
+bg_color = Color(0.21568628, 0.23137255, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwvjp"]
+bg_color = Color(0.4392157, 0.4627451, 0.54509807, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbtnt"]
+bg_color = Color(0.21568628, 0.23137255, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sg37"]
+bg_color = Color(0.4392157, 0.4627451, 0.54509807, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [node name="Town" type="Node2D" unique_id=637069194]
 
 [node name="Terrain" type="Node2D" parent="." unique_id=1353216164]
@@ -3668,3 +3792,146 @@ tile_map_data = PackedByteArray("AAD1//n/AAAAAAAAAAD1//r/AAAAAAEAAAD1//v/AAAAAAI
 tile_set = SubResource("TileSet_b7vll")
 
 [node name="Player" parent="." unique_id=1581713541 instance=ExtResource("4_06row")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1130491938]
+script = ExtResource("9_svnup")
+
+[node name="MainButtons" type="Panel" parent="HUD" unique_id=134012663]
+custom_minimum_size = Vector2(234, 66)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = -86.0
+offset_right = -21.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lun0u")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MainButtons" unique_id=17066360]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MainButtons/MarginContainer" unique_id=1089100862]
+layout_mode = 2
+alignment = 1
+
+[node name="EquipmentButton" type="Button" parent="HUD/MainButtons/MarginContainer/HBoxContainer" unique_id=2116862998]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_8iqyd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_svnup")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yr8sw")
+
+[node name="Icon" type="TextureRect" parent="HUD/MainButtons/MarginContainer/HBoxContainer/EquipmentButton" unique_id=48953707]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_5ya6w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InventoryButton" type="Button" parent="HUD/MainButtons/MarginContainer/HBoxContainer" unique_id=1128572555]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_8iqyd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w25xm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dmgee")
+
+[node name="Icon" type="TextureRect" parent="HUD/MainButtons/MarginContainer/HBoxContainer/InventoryButton" unique_id=840617990]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_svnup")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatsButton" type="Button" parent="HUD/MainButtons/MarginContainer/HBoxContainer" unique_id=1750076217]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_8iqyd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_my0xt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fwvjp")
+
+[node name="Icon" type="TextureRect" parent="HUD/MainButtons/MarginContainer/HBoxContainer/StatsButton" unique_id=1231133497]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_yr8sw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SkillsButton" type="Button" parent="HUD/MainButtons/MarginContainer/HBoxContainer" unique_id=9830901]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_8iqyd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xbtnt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3sg37")
+
+[node name="Icon" type="TextureRect" parent="HUD/MainButtons/MarginContainer/HBoxContainer/SkillsButton" unique_id=1742253145]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_w25xm")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/EquipmentButton" to="HUD" method="_on_equipment_button_pressed"]
+[connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/InventoryButton" to="HUD" method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/StatsButton" to="HUD" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/SkillsButton" to="HUD" method="_on_skills_button_pressed"]
