@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://gjnokcseymfk" path="res://Sprites/Items/Object/Bag.png" id="10_svnup"]
 [ext_resource type="Texture2D" uid="uid://mm445ygdhav3" path="res://Sprites/stats.png" id="11_yr8sw"]
 [ext_resource type="Texture2D" uid="uid://xyak03jnq3mj" path="res://Sprites/Rune.png" id="12_w25xm"]
+[ext_resource type="PackedScene" uid="uid://cr3e4a05n8opg" path="res://scenes/ui/skills_panel/euipped_skill_button.tscn" id="14_fwvjp"]
 [ext_resource type="PackedScene" uid="uid://185bfwfjhha6" path="res://scenes/ui/equipment_panel/equipment_panel.tscn" id="14_w25xm"]
 [ext_resource type="PackedScene" uid="uid://bbp56bsy11gyn" path="res://scenes/ui/inventory_panel/inventory_panel.tscn" id="14_yr8sw"]
 [ext_resource type="PackedScene" uid="uid://c0lnwh2wiafr1" path="res://scenes/ui/stats_panel/stats_panel.tscn" id="16_dmgee"]
@@ -3935,6 +3936,53 @@ texture = ExtResource("12_w25xm")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="ActionButtons" type="Panel" parent="HUD" unique_id=45236044]
+custom_minimum_size = Vector2(234, 66)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -86.0
+offset_right = 117.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lun0u")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/ActionButtons" unique_id=13868818]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/ActionButtons/MarginContainer" unique_id=1383096686]
+layout_mode = 2
+alignment = 1
+
+[node name="EuippedSkillButton" parent="HUD/ActionButtons/MarginContainer/HBoxContainer" unique_id=2063142216 instance=ExtResource("14_fwvjp")]
+layout_mode = 2
+number = 1
+
+[node name="EuippedSkillButton2" parent="HUD/ActionButtons/MarginContainer/HBoxContainer" unique_id=1690717865 instance=ExtResource("14_fwvjp")]
+layout_mode = 2
+number = 2
+
+[node name="EuippedSkillButton3" parent="HUD/ActionButtons/MarginContainer/HBoxContainer" unique_id=1495825843 instance=ExtResource("14_fwvjp")]
+layout_mode = 2
+number = 3
+
+[node name="EuippedSkillButton4" parent="HUD/ActionButtons/MarginContainer/HBoxContainer" unique_id=497440411 instance=ExtResource("14_fwvjp")]
+layout_mode = 2
+number = 4
+
 [node name="Panels" type="HBoxContainer" parent="HUD" unique_id=838106128]
 custom_minimum_size = Vector2(442, 332)
 anchors_preset = 3
@@ -3952,12 +4000,15 @@ theme_override_constants/separation = 12
 alignment = 2
 
 [node name="EquipmentPanel" parent="HUD/Panels" unique_id=2014450717 instance=ExtResource("14_w25xm")]
+visible = false
 layout_mode = 2
 
 [node name="InventoryPanel" parent="HUD/Panels" unique_id=892706448 instance=ExtResource("14_yr8sw")]
+visible = false
 layout_mode = 2
 
 [node name="StatsPanel" parent="HUD/Panels" unique_id=150375541 instance=ExtResource("16_dmgee")]
+visible = false
 layout_mode = 2
 
 [node name="SkillsPanel" parent="HUD/Panels" unique_id=137913225 instance=ExtResource("17_my0xt")]
