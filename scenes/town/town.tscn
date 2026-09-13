@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://gjnokcseymfk" path="res://Sprites/Items/Object/Bag.png" id="10_svnup"]
 [ext_resource type="Texture2D" uid="uid://mm445ygdhav3" path="res://Sprites/stats.png" id="11_yr8sw"]
 [ext_resource type="Texture2D" uid="uid://xyak03jnq3mj" path="res://Sprites/Rune.png" id="12_w25xm"]
+[ext_resource type="PackedScene" uid="uid://185bfwfjhha6" path="res://scenes/ui/equipment_panel/equipment_panel.tscn" id="14_w25xm"]
 [ext_resource type="PackedScene" uid="uid://bbp56bsy11gyn" path="res://scenes/ui/inventory_panel/inventory_panel.tscn" id="14_yr8sw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxugk"]
@@ -3947,6 +3948,9 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 12
 alignment = 2
+
+[node name="EquipmentPanel" parent="HUD/Panels" unique_id=2014450717 instance=ExtResource("14_w25xm")]
+layout_mode = 2
 
 [node name="InventoryPanel" parent="HUD/Panels" unique_id=892706448 instance=ExtResource("14_yr8sw")]
 layout_mode = 2
