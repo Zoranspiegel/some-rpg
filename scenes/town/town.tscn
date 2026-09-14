@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://bbp56bsy11gyn" path="res://scenes/ui/inventory_panel/inventory_panel.tscn" id="14_yr8sw"]
 [ext_resource type="PackedScene" uid="uid://c0lnwh2wiafr1" path="res://scenes/ui/stats_panel/stats_panel.tscn" id="16_dmgee"]
 [ext_resource type="PackedScene" uid="uid://c8u27jx2a641s" path="res://scenes/ui/skills_panel/skills_panel.tscn" id="17_my0xt"]
+[ext_resource type="PackedScene" uid="uid://d3mhror2v1hpk" path="res://scenes/drop_item/drop_item.tscn" id="20_vky2r"]
+[ext_resource type="Resource" uid="uid://ket4mivh4laf" path="res://data/potions/item_hp_small_2.tres" id="21_fwdo8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxugk"]
 texture = ExtResource("1_n11nm")
@@ -4143,6 +4145,10 @@ layout_mode = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+
+[node name="DropItem" parent="." unique_id=195374536 instance=ExtResource("20_vky2r")]
+position = Vector2(147, -23)
+item = ExtResource("21_fwdo8")
 
 [connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/EquipmentButton" to="HUD" method="_on_equipment_button_pressed"]
 [connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/InventoryButton" to="HUD" method="_on_inventory_button_pressed"]

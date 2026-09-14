@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemInventoryData" format=3 uid="uid://ket4mivh4laf"]
+
+[ext_resource type="Script" uid="uid://hhtrols4ea6r" path="res://data/item_inventory_data.gd" id="1_24sjb"]
+[ext_resource type="Texture2D" uid="uid://brbowyharou0c" path="res://Sprites/Items/Potion/LifePot.png" id="1_qh54l"]
+
+[resource]
+script = ExtResource("1_24sjb")
+type = 2
+is_consumable = true
+icon = ExtResource("1_qh54l")
+name = "Potion 2HP"
+price = 5
+metadata/_custom_type_script = "uid://hhtrols4ea6r"
