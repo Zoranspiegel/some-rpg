@@ -11,12 +11,6 @@ func _ready() -> void:
 	inventory.clear()
 	inventory.resize(INVENTORY_SIZE)
 
-#DEV
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		add_item(preload("uid://ket4mivh4laf"), 99)
-#DEV
-
 func get_empty_slot_indexes() -> Array[int]:
 	var empty: Array[int] = []
 	for i in inventory.size():
@@ -71,3 +65,8 @@ func add_item(item: ItemInventoryData, amount: int = 1) -> void:
 	var added = amount - remaining
 	if added > 0:
 		on_inventory_changed.emit()
+
+func get_slot(index: int) -> SlotData:
+	if index >= 0 and index < inventory.size():
+		return inventory[index]
+	return null

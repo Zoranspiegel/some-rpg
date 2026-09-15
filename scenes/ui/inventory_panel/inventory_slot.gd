@@ -1,7 +1,7 @@
 extends Button
 class_name InventorySlot
 
-signal on_slot_click(slot_indes: int, button: int)
+signal on_slot_click(slot_index: int, button: int)
 signal on_slot_hover(slot_index: int)
 
 @onready var item_icon: TextureRect = $ItemIcon
