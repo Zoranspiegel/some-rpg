@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bbp56bsy11gyn" path="res://scenes/ui/inventory_panel/inventory_panel.tscn" id="14_yr8sw"]
 [ext_resource type="PackedScene" uid="uid://c0lnwh2wiafr1" path="res://scenes/ui/stats_panel/stats_panel.tscn" id="16_dmgee"]
 [ext_resource type="PackedScene" uid="uid://c8u27jx2a641s" path="res://scenes/ui/skills_panel/skills_panel.tscn" id="17_my0xt"]
+[ext_resource type="PackedScene" uid="uid://dtujmfnyaad7f" path="res://scenes/ui/inventory_panel/inventory_slot.tscn" id="20_fwdo8"]
 [ext_resource type="PackedScene" uid="uid://d3mhror2v1hpk" path="res://scenes/drop_item/drop_item.tscn" id="20_vky2r"]
 [ext_resource type="Resource" uid="uid://ket4mivh4laf" path="res://data/potions/item_hp_small_2.tres" id="21_fwdo8"]
 
@@ -4131,10 +4132,11 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="InventoryPanel" parent="HUD/Panels" unique_id=892706448 instance=ExtResource("14_yr8sw")]
+[node name="InventoryPanel" parent="HUD/Panels" unique_id=892706448 node_paths=PackedStringArray("grabbed_slot") instance=ExtResource("14_yr8sw")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+grabbed_slot = NodePath("../../GrabbedSlot")
 
 [node name="StatsPanel" parent="HUD/Panels" unique_id=150375541 instance=ExtResource("16_dmgee")]
 unique_name_in_owner = true
@@ -4146,9 +4148,29 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
+[node name="GrabbedSlot" parent="HUD" unique_id=1620855978 instance=ExtResource("20_fwdo8")]
+visible = false
+offset_left = 1136.0
+offset_top = 563.0
+offset_right = 1171.0
+offset_bottom = 598.0
+mouse_filter = 2
+flat = true
+
 [node name="DropItem" parent="." unique_id=195374536 instance=ExtResource("20_vky2r")]
-position = Vector2(147, -23)
+position = Vector2(68, -23)
 item = ExtResource("21_fwdo8")
+amount = 30
+
+[node name="DropItem2" parent="." unique_id=313614342 instance=ExtResource("20_vky2r")]
+position = Vector2(70, -3)
+item = ExtResource("21_fwdo8")
+amount = 30
+
+[node name="DropItem3" parent="." unique_id=386282173 instance=ExtResource("20_vky2r")]
+position = Vector2(87, -15)
+item = ExtResource("21_fwdo8")
+amount = 30
 
 [connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/EquipmentButton" to="HUD" method="_on_equipment_button_pressed"]
 [connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/InventoryButton" to="HUD" method="_on_inventory_button_pressed"]

@@ -30,3 +30,17 @@ func clear_slot() -> void:
 	item_icon.texture = null
 	item_icon.hide()
 	amount_label.hide()
+
+
+func _on_mouse_entered() -> void:
+	selector.show()
+	on_slot_hover.emit(slot_index)
+
+
+func _on_mouse_exited() -> void:
+	selector.hide()
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.is_pressed():
+		on_slot_click.emit(slot_index, event.button_index)
