@@ -31,16 +31,18 @@ var next_level_exp: float
 var current_level: int = 1
 var current_points: int = 0
 
+var strenght_value: int = 0
+var dexterity_value: int = 0
+var intelligence_value: int = 0
+
 var current_mana: float
 
 var last_direction: String = "down"
 
 #########DEV
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("move_up"):
-		use_mana(1.0)
-	if event.is_action_pressed("move_down"):
-		health_component.take_damage(1.0)
+	if event.is_action_pressed("ui_accept"):
+		add_exp(20.0)
 #########DEV
 
 func _process(delta: float) -> void:

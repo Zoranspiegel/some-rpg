@@ -16,13 +16,36 @@ class_name StatsPanel
 @onready var int_points_label: Label = %INTPointsLabel
 
 
+func _ready() -> void:
+	EventBus.on_player_created.connect(_on_player_created)
+
+
+func update_stats() -> void:
+	if not is_instance_valid(Refs.player): return	
+	damage_label.text = "DMG: %d" % Refs.player.damge
+	hp_label.text = "HP: %d" % Refs.player.max_health
+	vel_label.text = "VEL: %d" % Refs.player.move_speed
+	mana_label.text = "MANA: %d" % Refs.player.max_mana
+	crit_label.text = "CRIT: %d" % Refs.player.crit_chance + "%"
+	crit_dmg_label.text = "C.DMG: %d" % Refs.player.crit_damage + "%"	
+	current_level_label.text = "Level %d" % Refs.player.current_level	
+	current_points_label.text = "Skill Points: %d" % Refs.player.current_points	
+	str_points_label.text = str(Refs.player.strenght_value)
+	dex_points_label.text = str(Refs.player.dexterity_value)
+	int_points_label.text = str(Refs.player.intelligence_value)
+
+
 func _on_str_button_pressed() -> void:
-	pass # Replace with function body.
+	print("STR_BUTTON_PRESSED")
 
 
 func _on_dex_button_pressed() -> void:
-	pass # Replace with function body.
+	print("DEX_BUTTON_PRESSED")
 
 
 func _on_int_button_pressed() -> void:
-	pass # Replace with function body.
+	print("INT_BUTTON_PRESSED")
+
+
+func _on_player_created() -> void:
+	update_stats()

@@ -89,14 +89,14 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "DMG: 100"
+text = "DMG: 0"
 label_settings = SubResource("LabelSettings_lun0u")
 
 [node name="HPLabel" type="Label" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer" unique_id=13870355]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "HP: 20"
+text = "HP: 0"
 label_settings = SubResource("LabelSettings_lun0u")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBox/VBoxContainer" unique_id=987606503]
@@ -107,14 +107,14 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "VEL: 80"
+text = "VEL: 0"
 label_settings = SubResource("LabelSettings_lun0u")
 
 [node name="ManaLabel" type="Label" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer2" unique_id=256784438]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "MANA: 20"
+text = "MANA: 0"
 label_settings = SubResource("LabelSettings_lun0u")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBox/VBoxContainer" unique_id=2011646005]
@@ -125,14 +125,14 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "CRIT: 15%"
+text = "CRIT: 0%"
 label_settings = SubResource("LabelSettings_lun0u")
 
 [node name="CritDMGLabel" type="Label" parent="MarginContainer/VBox/VBoxContainer/HBoxContainer3" unique_id=1934162332]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "C.DMG: 20%"
+text = "C.DMG: 0%"
 label_settings = SubResource("LabelSettings_lun0u")
 
 [node name="ColorRect2" type="ColorRect" parent="MarginContainer/VBox" unique_id=2087886219]
@@ -147,7 +147,7 @@ layout_mode = 2
 [node name="CurrentLevelLabel" type="Label" parent="MarginContainer/VBox" unique_id=641597519]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Level 5"
+text = "Level 1"
 label_settings = SubResource("LabelSettings_8iqyd")
 horizontal_alignment = 1
 
@@ -158,7 +158,7 @@ layout_mode = 2
 [node name="CurrentPointsLabel" type="Label" parent="MarginContainer/VBox" unique_id=1904644989]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Points: 4"
+text = "Skill Points: 0"
 label_settings = SubResource("LabelSettings_my0xt")
 
 [node name="Space4" type="Control" parent="MarginContainer/VBox" unique_id=740055966]
@@ -180,7 +180,7 @@ label_settings = SubResource("LabelSettings_b7vll")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
-text = "1"
+text = "0"
 label_settings = SubResource("LabelSettings_b7vll")
 
 [node name="STRButton" type="Button" parent="MarginContainer/VBox/Attributes/HBoxContainer" unique_id=84886277]
@@ -204,7 +204,7 @@ label_settings = SubResource("LabelSettings_b7vll")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
-text = "1"
+text = "0"
 label_settings = SubResource("LabelSettings_b7vll")
 
 [node name="DEXButton" type="Button" parent="MarginContainer/VBox/Attributes/HBoxContainer2" unique_id=832733422]
@@ -228,7 +228,7 @@ label_settings = SubResource("LabelSettings_b7vll")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
-text = "1"
+text = "0"
 label_settings = SubResource("LabelSettings_b7vll")
 
 [node name="INTButton" type="Button" parent="MarginContainer/VBox/Attributes/HBoxContainer3" unique_id=726235991]
