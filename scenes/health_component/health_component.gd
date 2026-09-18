@@ -11,6 +11,14 @@ func setup(value: float) -> void:
 	max_health = value
 	current_health = value
 
+
+func increase_max_health(new_max_health: float) -> void:
+	var proportion: float = current_health / max_health
+	max_health = new_max_health
+	current_health = max_health * proportion
+	on_health_change.emit(current_health)
+
+
 func take_damage(value: float) -> void:
 	if current_health <= 0:
 		return

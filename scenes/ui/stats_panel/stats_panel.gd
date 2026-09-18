@@ -18,11 +18,12 @@ class_name StatsPanel
 
 func _ready() -> void:
 	EventBus.on_player_created.connect(_on_player_created)
+	EventBus.on_player_stats_updated.connect(_on_player_stats_updated)
 
 
 func update_stats() -> void:
 	if not is_instance_valid(Refs.player): return	
-	damage_label.text = "DMG: %d" % Refs.player.damge
+	damage_label.text = "DMG: %d" % Refs.player.damage
 	hp_label.text = "HP: %d" % Refs.player.max_health
 	vel_label.text = "VEL: %d" % Refs.player.move_speed
 	mana_label.text = "MANA: %d" % Refs.player.max_mana
@@ -36,16 +37,20 @@ func update_stats() -> void:
 
 
 func _on_str_button_pressed() -> void:
-	print("STR_BUTTON_PRESSED")
+	Refs.player.upgrade_stat("STR")
 
 
 func _on_dex_button_pressed() -> void:
-	print("DEX_BUTTON_PRESSED")
+	Refs.player.upgrade_stat("DEX")
 
 
 func _on_int_button_pressed() -> void:
-	print("INT_BUTTON_PRESSED")
+	Refs.player.upgrade_stat("INT")
 
 
 func _on_player_created() -> void:
+	update_stats()
+
+
+func _on_player_stats_updated() -> void:
 	update_stats()
