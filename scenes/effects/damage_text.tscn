@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d1b47nkq7m57a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ubklv"]
+font_size = 10
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DamageText" type="Label" unique_id=680152712]
+custom_minimum_size = Vector2(20, 20)
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+text = "0"
+label_settings = SubResource("LabelSettings_ubklv")
+horizontal_alignment = 1
+vertical_alignment = 1

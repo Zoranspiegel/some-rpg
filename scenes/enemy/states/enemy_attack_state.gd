@@ -26,4 +26,8 @@ func process_state(delta: float) -> void:
 func deal_damage() -> void:
 	var distance_to_player: float = enemy.global_position.distance_to(Refs.player.global_position)
 	if distance_to_player <= 25.0:
+		var angle_to_player: float = enemy.global_position.angle_to_point(Refs.player.global_position)
+		var damage_fx_position: Vector2 = enemy.global_position + Vector2.RIGHT.rotated(angle_to_player) * 4
+		Refs.create_damage_fx(damage_fx_position, angle_to_player)
 		Refs.player.health_component.take_damage(enemy.damage)
+		Refs.create_damage_text(Refs.player.global_position, enemy.damage)

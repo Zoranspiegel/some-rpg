@@ -100,6 +100,7 @@ func level_up() -> void:
 	current_level += 1
 	current_points += 4
 	next_level_exp *= exp_multiplier
+	Refs.create_new_level_fx(global_position)
 	EventBus.on_player_stats_updated.emit()
 
 

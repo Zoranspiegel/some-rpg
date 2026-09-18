@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cqxdqij4j6341"]
+
+[ext_resource type="Texture2D" uid="uid://ioycmjxiaw0o" path="res://Sprites/FX/SlashFx/Claw/SpriteSheet.png" id="1_i8cln"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frm2d"]
+atlas = ExtResource("1_i8cln")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lymj7"]
+atlas = ExtResource("1_i8cln")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fuab"]
+atlas = ExtResource("1_i8cln")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3kkf"]
+atlas = ExtResource("1_i8cln")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_trihb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frm2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lymj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fuab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3kkf")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="DamageFX" type="AnimatedSprite2D" unique_id=905282978]
+sprite_frames = SubResource("SpriteFrames_trihb")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
