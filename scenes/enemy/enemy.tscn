@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://ly73n3oeuupe" path="res://scripts/fsm.gd" id="6_cwlon"]
 [ext_resource type="Script" uid="uid://bpl35f5hgslvh" path="res://scenes/enemy/states/enemy_wander_state.gd" id="7_nbhyu"]
 [ext_resource type="Script" uid="uid://01jtgf7bijcs" path="res://scenes/enemy/states/enemy_follow_state.gd" id="8_13gj6"]
+[ext_resource type="Script" uid="uid://dr80l2k773046" path="res://scenes/enemy/states/enemy_attack_state.gd" id="9_4efjx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3pup"]
 atlas = ExtResource("1_4a83h")
@@ -197,6 +198,9 @@ script = ExtResource("7_nbhyu")
 
 [node name="Follow" type="Node" parent="FSM" unique_id=424287477]
 script = ExtResource("8_13gj6")
+
+[node name="Attack" type="Node" parent="FSM" unique_id=1716024682]
+script = ExtResource("9_4efjx")
 
 [connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
 [connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]

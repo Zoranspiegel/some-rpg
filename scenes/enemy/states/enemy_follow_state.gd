@@ -15,3 +15,5 @@ func process_state(delta: float) -> void:
 	if distance_to_player > stop_distance:
 		enemy.update_anim_sprite(direction)
 		enemy.global_position += direction * follow_speed * delta
+	else:
+		fsm.transition_to("Attack")
