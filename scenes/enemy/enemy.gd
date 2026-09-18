@@ -11,6 +11,7 @@ signal on_enemy_die
 @onready var selector: Sprite2D = $Selector
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var anim_sprite: AnimatedSprite2D = $AnimSprite
+@onready var detect_area: Area2D = $DetectArea
 
 var enemy_zone: EnemyZone
 
@@ -38,3 +39,11 @@ func select_enemy() -> void:
 
 func deselect_enemy() -> void:
 	selector.hide()
+
+
+func _on_detect_area_body_entered(body: Node2D) -> void:
+	fsm.transition_to("Follow")
+
+
+func _on_detect_area_body_exited(body: Node2D) -> void:
+	fsm.transition_to("Wander")
