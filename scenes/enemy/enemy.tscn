@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://cky3nkkrbtfvq" path="res://scenes/enemy/enemy.gd" id="1_gl05p"]
 [ext_resource type="Texture2D" uid="uid://b25swkh2ytg3p" path="res://Sprites/Selector.png" id="3_tjssy"]
 [ext_resource type="PackedScene" uid="uid://mm65c74xl0m2" path="res://scenes/health_component/health_component.tscn" id="4_tjssy"]
+[ext_resource type="Script" uid="uid://ly73n3oeuupe" path="res://scripts/fsm.gd" id="6_cwlon"]
+[ext_resource type="Script" uid="uid://bpl35f5hgslvh" path="res://scenes/enemy/states/enemy_wander_state.gd" id="7_nbhyu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3pup"]
 atlas = ExtResource("1_4a83h")
@@ -184,3 +186,10 @@ shape = SubResource("CircleShape2D_8iqyd")
 debug_color = Color(1, 0.43529412, 0.50980395, 0.1764706)
 
 [node name="HealthComponent" parent="." unique_id=928065996 instance=ExtResource("4_tjssy")]
+
+[node name="FSM" type="Node" parent="." unique_id=1418304332]
+script = ExtResource("6_cwlon")
+initial_state = NodePath("Wander")
+
+[node name="Wander" type="Node" parent="FSM" unique_id=1799874617]
+script = ExtResource("7_nbhyu")
