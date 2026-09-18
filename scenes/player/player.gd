@@ -7,7 +7,7 @@ class_name Player
 @export var move_speed: float = 60.0
 @export var damage: float = 5.0
 @export var crit_chance: float = 0.0
-@export var crit_damage: float = 0.0
+@export var crit_damage: float = 50.0
 
 @export_group("Exp")
 @export var base_exp: float = 100.0
@@ -43,6 +43,29 @@ func _process(delta: float) -> void:
 	if fsm.curr_state:
 		fsm.curr_state.process_state(delta)
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("attack"):
+		print(get_damage())
+
+#region Combat
+func get_damage(skill_damage: float = 0.0) -> float:
+	var total_damage: float = damage + skill_damage
+	
+	for equipment: EquipmentData in GameData.equipment.values():
+		if equipment:
+			total_damage += equipment.bonus_damage
+	
+	if randf() * 100 <= crit_chance:
+		print("CRITICAL!!")
+		total_damage *= (1.0 + (crit_damage / 100))
+	
+	return total_damage
+
+
+func enable_weapon_collision(value: bool):
+	enemy_area.monitoring = value
+#endregion
+
 #region Movement & Animation
 func is_moving() -> bool:
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
@@ -61,10 +84,6 @@ func update_direction(input_vector: Vector2) -> void:
 
 func play_direction_anim(anim_name: String) -> void:
 	anim_sprite.play("%s_%s" % [anim_name, last_direction])
-
-
-func enable_weapon_collision(value: bool):
-	enemy_area.monitoring = value
 #endregion
 
 #region Level Up

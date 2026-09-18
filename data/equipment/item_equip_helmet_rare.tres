@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_27v5b")
+bonus_damage = 10.0
 type = 4
 max_stack = 1
 id = "equip_helmet"
