@@ -53,7 +53,12 @@ func handle_left_button(slot_index: int) -> void:
 
 
 func handle_right_button(slot_index: int) -> void:
-	print("SLOT_%d_CLICK_WITH_RIGHT_BUTTON" % [slot_index])
+	var item: ItemInventoryData = Inventory.get_slot_item(slot_index)
+	if not item:
+		return
+	elif Inventory.can_use_item(slot_index):
+		Inventory.use_item(slot_index)
+		EventBus.on_inventory_used_item.emit(item)
 
 func _on_slot_click(slot_index: int, button: int) -> void:
 	match button:

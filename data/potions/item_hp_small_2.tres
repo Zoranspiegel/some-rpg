@@ -7,6 +7,8 @@
 script = ExtResource("1_24sjb")
 type = 2
 is_consumable = true
+value = 2.0
+id = "hp_potion"
 icon = ExtResource("1_qh54l")
 name = "Potion 2HP"
 price = 5

@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dtujmfnyaad7f" path="res://scenes/ui/inventory_panel/inventory_slot.tscn" id="20_fwdo8"]
 [ext_resource type="PackedScene" uid="uid://d3mhror2v1hpk" path="res://scenes/drop_item/drop_item.tscn" id="20_vky2r"]
 [ext_resource type="Resource" uid="uid://ket4mivh4laf" path="res://data/potions/item_hp_small_2.tres" id="21_fwdo8"]
+[ext_resource type="Resource" uid="uid://c86yjg5vmd57a" path="res://data/potions/item_mana_small_5.tres" id="23_wacgc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxugk"]
 texture = ExtResource("1_n11nm")
@@ -4169,7 +4170,7 @@ amount = 30
 
 [node name="DropItem3" parent="." unique_id=386282173 instance=ExtResource("20_vky2r")]
 position = Vector2(87, -15)
-item = ExtResource("21_fwdo8")
+item = ExtResource("23_wacgc")
 amount = 30
 
 [connection signal="pressed" from="HUD/MainButtons/MarginContainer/HBoxContainer/EquipmentButton" to="HUD" method="_on_equipment_button_pressed"]

@@ -12,12 +12,13 @@ func _ready() -> void:
 	inventory.resize(INVENTORY_SIZE)
 
 #DEV
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		inventory[10] = SlotData.new(preload("uid://ket4mivh4laf"), 20)
-		on_inventory_changed.emit()
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("ui_accept"):
+		#inventory[10] = SlotData.new(preload("uid://ket4mivh4laf"), 20)
+		#on_inventory_changed.emit()
 #DEV
 
+#region Find
 func get_empty_slot_indexes() -> Array[int]:
 	var empty: Array[int] = []
 	for i in inventory.size():
@@ -39,6 +40,19 @@ func find_item_indexes(item: ItemInventoryData, with_space: bool = false) -> Arr
 	
 	return found
 
+func get_slot(index: int) -> SlotData:
+	if index >= 0 and index < inventory.size():
+		return inventory[index]
+	return null
+
+func get_slot_item(index: int) -> ItemInventoryData:
+	var slot = get_slot(index)
+	if slot:
+		return slot.item
+	return null
+#endregion
+
+#region Add / Remove
 func add_item(item: ItemInventoryData, amount: int = 1) -> void:
 	if not item:
 		return
@@ -72,7 +86,9 @@ func add_item(item: ItemInventoryData, amount: int = 1) -> void:
 	var added = amount - remaining
 	if added > 0:
 		on_inventory_changed.emit()
+#endregion
 
+#region Move Slots
 func swap_slots(from_index: int, to_index: int) -> void:
 	if from_index < 0 or from_index >= inventory.size():
 		return
@@ -109,15 +125,25 @@ func merge_slots(from_index: int, to_index: int) -> void:
 	
 	#inventory[to_index] = to_slot
 	on_inventory_changed.emit()
+#endregion
 
-func get_slot(index: int) -> SlotData:
-	if index >= 0 and index < inventory.size():
-		return inventory[index]
-	return null
-
-func get_slot_item(index: int) -> ItemInventoryData:
-	var slot = get_slot(index)
-	if slot:
-		return slot.item
-	return null
+#region Use Item
+func use_item(slot_index: int) -> void:
+	var slot: SlotData = inventory[slot_index]
+	if not slot:
+		return
+	if not slot.item.is_consumable:
+		return
 	
+	slot.quantity -= 1
+	
+	if slot.quantity <= 0:
+		inventory[slot_index] = null
+	
+	on_inventory_changed.emit()
+
+
+func can_use_item(slot_index: int) -> bool:
+	var slot: SlotData = get_slot(slot_index)
+	return slot and slot.item.is_consumable
+#endregion

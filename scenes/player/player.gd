@@ -3,7 +3,7 @@ class_name Player
 
 @export_group("Stats")
 @export var max_health: float = 10.0
-@export var max_mana: float = 10.0
+@export var max_mana: float = 50.0
 @export var move_speed: float = 60.0
 @export var damge: float = 5.0
 @export var crit_chance: float = 0.0
@@ -34,6 +34,15 @@ var current_points: int = 0
 var current_mana: float
 
 var last_direction: String = "down"
+
+#########DEV
+#func _input(event: InputEvent) -> void:
+	#print(current_mana)
+	#if event.is_action_pressed("move_up"):
+		#use_mana(1.0)
+	#if event.is_action_pressed("move_down"):
+		#health_component.take_damage(1.0)
+#########DEV
 
 func _process(delta: float) -> void:
 	if fsm.curr_state:
@@ -87,5 +96,18 @@ func use_mana(value: float) -> void:
 	current_mana = max(current_mana, 0)
 	EventBus.on_player_mana_updated.emit(current_mana, max_mana)
 
+func add_mana(value: float) -> void:
+	current_mana += value
+	current_mana = min(current_mana, max_mana)
+	EventBus.on_player_mana_updated.emit(current_mana, max_mana)
+
 func enable_weapon_collision(value: bool):
 	enemy_area.monitoring = value
+
+
+func _on_health_component_on_health_change(curr_health: float) -> void:
+	EventBus.on_player_health_updated.emit(curr_health, max_health)
+
+
+func _on_health_component_on_dead() -> void:
+	queue_free()
