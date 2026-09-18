@@ -11,13 +11,6 @@ func _ready() -> void:
 	inventory.clear()
 	inventory.resize(INVENTORY_SIZE)
 
-#DEV
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("ui_accept"):
-		#inventory[10] = SlotData.new(preload("uid://ket4mivh4laf"), 20)
-		#on_inventory_changed.emit()
-#DEV
-
 #region Find
 func get_empty_slot_indexes() -> Array[int]:
 	var empty: Array[int] = []
@@ -125,6 +118,34 @@ func merge_slots(from_index: int, to_index: int) -> void:
 	
 	#inventory[to_index] = to_slot
 	on_inventory_changed.emit()
+#endregion
+
+#region Equip Item
+func equip_item(slot_index: int) -> void:
+	var slot: SlotData = get_slot(slot_index)
+	if not slot: return
+	if not slot.item is EquipmentData: return
+	
+	var item: EquipmentData = slot.item as EquipmentData
+	var equip_key: String = item.get_equip_key()
+	var equiped_item: EquipmentData = GameData.equipment[equip_key]
+	GameData.equipment[equip_key] = item
+	inventory[slot_index] = null
+	if equiped_item:
+		add_item(equiped_item, 1)
+	
+	on_inventory_changed.emit()
+	on_equipment_changed.emit()
+
+func unequip_item(equip_type: EquipmentData.EquipmentType) -> void:
+	var equip_key: String = GameData.equipment.keys()[equip_type]
+	var equipped_item = GameData.equipment[equip_key]
+	
+	if not equipped_item: return
+	
+	add_item(equipped_item, 1)
+	GameData.equipment[equip_key] = null
+	on_equipment_changed.emit()
 #endregion
 
 #region Use Item

@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 EventBus="*uid://cgifo1pnlafkj"
 Inventory="*uid://dsktprdhhav2s"
 Refs="*uid://b7jxgqmbcel6d"
+GameData="*uid://cv76yeae8gmk2"
 
 [display]
 

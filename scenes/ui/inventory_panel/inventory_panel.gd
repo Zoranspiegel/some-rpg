@@ -54,8 +54,10 @@ func handle_left_button(slot_index: int) -> void:
 
 func handle_right_button(slot_index: int) -> void:
 	var item: ItemInventoryData = Inventory.get_slot_item(slot_index)
-	if not item:
-		return
+	if not item: return
+	
+	if item is EquipmentData:
+		Inventory.equip_item(slot_index)
 	elif Inventory.can_use_item(slot_index):
 		Inventory.use_item(slot_index)
 		EventBus.on_inventory_used_item.emit(item)

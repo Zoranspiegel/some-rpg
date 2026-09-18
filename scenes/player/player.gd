@@ -36,12 +36,11 @@ var current_mana: float
 var last_direction: String = "down"
 
 #########DEV
-#func _input(event: InputEvent) -> void:
-	#print(current_mana)
-	#if event.is_action_pressed("move_up"):
-		#use_mana(1.0)
-	#if event.is_action_pressed("move_down"):
-		#health_component.take_damage(1.0)
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("move_up"):
+		use_mana(1.0)
+	if event.is_action_pressed("move_down"):
+		health_component.take_damage(1.0)
 #########DEV
 
 func _process(delta: float) -> void:

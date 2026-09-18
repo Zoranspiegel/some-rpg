@@ -58,6 +58,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="HelmetSlot" parent="MarginContainer/VBox/VBoxContainer/Helmet" unique_id=1231081740 instance=ExtResource("1_ygh2l")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Chest" type="HBoxContainer" parent="MarginContainer/VBox/VBoxContainer" unique_id=920214364]
@@ -66,10 +67,14 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="WeaponSlot" parent="MarginContainer/VBox/VBoxContainer/Chest" unique_id=1031962833 instance=ExtResource("1_ygh2l")]
+unique_name_in_owner = true
 layout_mode = 2
+equipment_type = 2
 
 [node name="ChestSlot" parent="MarginContainer/VBox/VBoxContainer/Chest" unique_id=1827850657 instance=ExtResource("1_ygh2l")]
+unique_name_in_owner = true
 layout_mode = 2
+equipment_type = 1
 
 [node name="Control" type="Control" parent="MarginContainer/VBox/VBoxContainer/Chest" unique_id=1349158288]
 custom_minimum_size = Vector2(40, 40)
@@ -80,14 +85,18 @@ layout_mode = 2
 alignment = 1
 
 [node name="LegsSlot" parent="MarginContainer/VBox/VBoxContainer/Legs" unique_id=168925461 instance=ExtResource("1_ygh2l")]
+unique_name_in_owner = true
 layout_mode = 2
+equipment_type = 3
 
 [node name="Ring" type="HBoxContainer" parent="MarginContainer/VBox/VBoxContainer" unique_id=1447444779]
 layout_mode = 2
 alignment = 1
 
 [node name="RingSlot" parent="MarginContainer/VBox/VBoxContainer/Ring" unique_id=1925157129 instance=ExtResource("1_ygh2l")]
+unique_name_in_owner = true
 layout_mode = 2
+equipment_type = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBox" unique_id=926637305]
 layout_mode = 2
